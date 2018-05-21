@@ -1,13 +1,15 @@
 package com.example.demo.model;
 
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 public class UserInfo {
 
-    //@Id
+    @Id
     private String id ;
 
-    //@Column(name = "user_name")
+    @Column(name = "user_name")
     private String userName;
 
 

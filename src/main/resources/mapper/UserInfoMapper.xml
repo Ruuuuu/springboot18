@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.demo.dao.UserInfoMapper">
     <resultMap id="BaseResultMap" type="com.example.demo.model.UserInfo">
-        <id column="id" jdbcType="INTEGER" property="id"/>
+        <id column="id" jdbcType="VARCHAR" property="id"/>
         <result column="user_name" jdbcType="VARCHAR" property="userName"></result>
     </resultMap>
 
@@ -11,10 +11,4 @@
         id,user_name
     </sql>
     
-    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select 
-        <include refid="Base_Column_List"></include>
-        from user_info t
-        where t.id = #{id,jdbcType=VARCHAR}
-    </select>
 </mapper>

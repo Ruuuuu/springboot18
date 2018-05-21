@@ -2,7 +2,9 @@ package com.example.demo.core.configurer;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
+///import org.mybatis.spring.mapper.MapperScannerConfigurer;
+///这里引入mapper的包 而不是mybatis官方的starter
+import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;

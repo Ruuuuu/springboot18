@@ -5,7 +5,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.example.demo.core.ret.RetCode;
 import com.example.demo.core.ret.RetResult;
 import com.example.demo.core.ret.ServiceException;
-import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -20,12 +19,12 @@ import java.io.IOException;
 import java.util.List;
 
 
+
 /**
  * @author yangr
  */
 @Configuration
 public class WebConfigurer extends WebMvcConfigurationSupport {
-    private static Logger logger = Logger.getLogger(WebConfigurer.class);
 
     @Override
     protected void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
@@ -66,7 +65,7 @@ public class WebConfigurer extends WebMvcConfigurationSupport {
         try {
             response.getWriter().write(JSON.toJSONString(result,SerializerFeature.WriteMapNullValue));
         } catch (IOException ex){
-            logger.error(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -97,7 +96,7 @@ public class WebConfigurer extends WebMvcConfigurationSupport {
         }else {
             message = e.getMessage();
         }
-        logger.error(message, e);
+        System.out.println(message);
         return result;
     }
 
