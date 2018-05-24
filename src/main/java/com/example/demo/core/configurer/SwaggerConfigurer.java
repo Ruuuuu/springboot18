@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfigurer {
 
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -35,7 +35,7 @@ public class SwaggerConfigurer {
                 .title("使用swagger2构建restful APIs")
                 .description("更多介绍请登陆spring.io")
                 .termsOfServiceUrl("www.baidu.com")
-                .contact(new Contact("yangrh","https://github.com/Ruuuuu/springboot18","yangruhang521@qq.com"))
+                .contact(new Contact("yangrh", "https://github.com/Ruuuuu/springboot18", "yangruhang521@qq.com"))
                 .version("1.0")
                 .build();
     }

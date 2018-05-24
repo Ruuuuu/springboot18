@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class UserInfo {
 
     @Id
-    private String id ;
+    private String id;
 
     @Column(name = "user_name")
     private String userName;

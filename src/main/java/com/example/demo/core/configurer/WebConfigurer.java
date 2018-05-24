@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.List;
 
 
-
 /**
  * @author yangr
  */
@@ -54,23 +53,24 @@ public class WebConfigurer extends WebMvcConfigurationSupport {
 
 
     /**
-     * @Description 响应结果
      * @param response
      * @param result
+     * @Description 响应结果
      */
     private void responseResult(HttpServletResponse response, RetResult<Object> result) {
         response.setCharacterEncoding("UTF-8");
-        response.setHeader("Content-Type","application/json;charset=UTF-8");
+        response.setHeader("Content-Type", "application/json;charset=UTF-8");
         response.setStatus(200);
         try {
-            response.getWriter().write(JSON.toJSONString(result,SerializerFeature.WriteMapNullValue));
-        } catch (IOException ex){
+            response.getWriter().write(JSON.toJSONString(result, SerializerFeature.WriteMapNullValue));
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     /**
      * 根据异常类型返回数据
+     *
      * @param request
      * @param handler
      * @param e
@@ -79,21 +79,21 @@ public class WebConfigurer extends WebMvcConfigurationSupport {
     private RetResult<Object> getResuleByHandlerException(HttpServletRequest request, Object handler, Exception e) {
 
         RetResult<Object> result = new RetResult<>();
-        if (e instanceof ServiceException){
+        if (e instanceof ServiceException) {
             result.setCode(RetCode.FAIL).setMsg(e.getMessage()).setData(null);
             return result;
         }
-        if(e instanceof NoHandlerFoundException){
-            result.setCode(RetCode.NOT_FOUND).setMsg("接口：[ "+request.getRequestURI()+" ]不存在");
+        if (e instanceof NoHandlerFoundException) {
+            result.setCode(RetCode.NOT_FOUND).setMsg("接口：[ " + request.getRequestURI() + " ]不存在");
             return result;
         }
-        result.setCode(RetCode.INTERNAL_SERVER_ERROR).setMsg("接口：["+ request.getRequestURI()+" ]内部错误");
+        result.setCode(RetCode.INTERNAL_SERVER_ERROR).setMsg("接口：[" + request.getRequestURI() + " ]内部错误");
 
-        String message ;
-        if(handler instanceof HandlerMethod){
-            HandlerMethod handlerMethod = (HandlerMethod) handler ;
-            message = String.format("接口[%s]出现异常，方法：%s.%s，异常摘要：%s",request.getRequestURL(),handlerMethod.getBean().getClass().getName(),handlerMethod.getMethod().getName(),e.getMessage());
-        }else {
+        String message;
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            message = String.format("接口[%s]出现异常，方法：%s.%s，异常摘要：%s", request.getRequestURL(), handlerMethod.getBean().getClass().getName(), handlerMethod.getMethod().getName(), e.getMessage());
+        } else {
             message = e.getMessage();
         }
         System.out.println(message);

@@ -13,11 +13,10 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import javax.sql.DataSource;
 
 /**
+ * @author
  * @ClassName: MybatisConfigurer
  * @Description: Mybatis配置
- * @author
  * @date
- *
  */
 @Configuration
 public class MybatisConfigurer {

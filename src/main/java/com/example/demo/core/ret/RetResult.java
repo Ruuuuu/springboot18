@@ -5,22 +5,22 @@ public class RetResult<T> {
 
     /**
      * code为状态码、msg为提示信息、data为返回的数据
-    */
+     */
     public int code;
     private String msg;
     private T data;
 
-    public RetResult<T> setCode(RetCode retCode){
+    public RetResult<T> setCode(RetCode retCode) {
         this.code = retCode.code;
         return this;
     }
 
-    public RetResult<T> setCode(int code){
+    public RetResult<T> setCode(int code) {
         this.code = code;
         return this;
     }
 
-    public int getCode(){
+    public int getCode() {
         return code;
     }
 

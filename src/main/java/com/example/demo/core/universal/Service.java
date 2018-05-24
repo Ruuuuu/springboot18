@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.TimerTask;
 
 /**
- * @Description service层基础接口，其他service需继承此接口
- * @author yangr
  * @param <T>
+ * @author yangr
+ * @Description service层基础接口，其他service需继承此接口
  */
 public interface Service<T> {
 
@@ -35,6 +35,7 @@ public interface Service<T> {
 
     /**
      * 查
+     *
      * @param id
      * @return T
      */
@@ -44,20 +45,24 @@ public interface Service<T> {
      * 通过model中的某个参数查
      */
     T selectBy(String fieldName, Object value);
+
     List<T> selectListBy(String fieldName, Object value);
+
     List<T> selectListByIds(String ids);
+
     List<T> selectByCondition(Condition condition);
 
     /**
      * 查询
-     * @Description 查询
+     *
      * @return
+     * @Description 查询
      */
     List<T> selectAll();
+
     List<T> select(T record);
+
     T selectOne(T record);
-
-
 
 
 }

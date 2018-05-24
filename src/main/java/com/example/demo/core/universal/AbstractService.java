@@ -11,8 +11,9 @@ import java.util.List;
 
 /**
  * 基于通用service接口的实现
- * @author yangr
+ *
  * @param <T>
+ * @author yangr
  */
 public abstract class AbstractService<T> implements Service<T> {
     @Autowired
@@ -24,7 +25,7 @@ public abstract class AbstractService<T> implements Service<T> {
     private Class<T> modelClass;
 
     @SuppressWarnings("unchecked")
-    public AbstractService(){
+    public AbstractService() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }
@@ -64,7 +65,7 @@ public abstract class AbstractService<T> implements Service<T> {
             field.set(model, value);
             return mapper.selectOne(model);
         } catch (ReflectiveOperationException e) {
-            throw new ServiceException(e.getMessage(),e);
+            throw new ServiceException(e.getMessage(), e);
         }
     }
 
@@ -78,7 +79,7 @@ public abstract class AbstractService<T> implements Service<T> {
             field.set(model, value);
             return mapper.select(model);
         } catch (ReflectiveOperationException e) {
-            throw new ServiceException(e.getMessage(),e);
+            throw new ServiceException(e.getMessage(), e);
         }
     }
 

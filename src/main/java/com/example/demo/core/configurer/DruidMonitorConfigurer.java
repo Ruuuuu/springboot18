@@ -32,8 +32,10 @@ public class DruidMonitorConfigurer {
         bean.addInitParameter("resetEnable", "false");
         return bean;
     }
+
     /**
      * 注册FilterRegistrationBean
+     *
      * @return
      */
     @Bean
@@ -42,7 +44,7 @@ public class DruidMonitorConfigurer {
         //添加过滤规则.
         bean.addUrlPatterns("/*");
         //添加不需要忽略的格式信息.
-        bean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        bean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return bean;
     }
 
